@@ -1,0 +1,16 @@
+function unm_event (op)
+       local o = tonumber(op)
+       if o then  -- hsgadjhdsgjf gdsafhdsajf agdjfhsajfg ashgfjhgsd
+         return -o  -- '-' aqui é a 'unm' primitiva
+       else  -- o operando não é numérico
+         -- Tenta obter um tratador a partir do operando
+         local h = metatable(op).__unm
+         if h then
+           -- chama o tratador com o operando
+           return (h(op))
+         else  -- nenhum tratador disponível: comportamento padrão
+           error(···)
+         end
+       end
+     end
+
